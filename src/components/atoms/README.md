@@ -1,0 +1,2 @@
+### Atoms
+Atoms are the smallest possible components, such as buttons, titles, inputs or event color pallets, animations, and fonts. They can be applied in any context, globally or within other components and templates, besides having many states, such as this example of a button: disabled, hover, different sizes, etc.
