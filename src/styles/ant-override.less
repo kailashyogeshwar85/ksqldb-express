@@ -1,1 +1,15 @@
-@import 'variables';
+@import './variables.less';
+
+#root {
+  .theme-switch {
+    .ant-switch {
+      background-color: @disabled-color;
+    }
+    .ant-switch.ant-switch-checked {
+      background-color: #177ddc;
+    }
+  }
+  // .ant-menu {
+  //   background-color: @layout-header-background;
+  // }
+}

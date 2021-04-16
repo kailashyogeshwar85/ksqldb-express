@@ -1,3 +1,4 @@
+const path = require('path')
 const CracoLessPlugin = require('craco-less');
 const lightThemeVars = require('./src/styles/themes/light');
 

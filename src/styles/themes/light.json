@@ -1,12 +1,4 @@
 {
-  "@primary-color": "#2C94DA",
-  "@success-color": "#52C41A",
-  "@info-color": "#ebc988",
-  "@warning-color": "#FAAD14",
-  "@error-color": "#F5222D",
-  "@text-color": "#2D2D2D",
-  "@text-color-secondary": "#000000",
-  "@heading-color-dark": "#ffffff",
-  "@text-color-dark": "#f3f4f5",
-  "@disabled-color": "#8899a6"
+  "@layout-header-background": "#252525",
+  "@body-background": "#fff"
 }
