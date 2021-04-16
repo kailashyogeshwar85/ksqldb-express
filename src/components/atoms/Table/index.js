@@ -77,7 +77,7 @@ const data = [
 
 function QueryResult() {
   const scrollSettings = {
-    scrollToFirstRowOnChange: false,
+    scrollToFirstRowOnChange: true,
     x: true,
     y: true
   };

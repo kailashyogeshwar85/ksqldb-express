@@ -130,7 +130,7 @@ const Nodes = () => {
   };
 
   return (
-    <div class="ke-node-tree">
+    <div className="ke-node-tree">
       <Tree
         onSelect={onSelect}
         treeData={treeData}

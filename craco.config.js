@@ -15,5 +15,24 @@ module.exports = {
         },
       },
     },
+    {
+      plugin: CracoLessPlugin,
+      options: {
+          lessLoaderOptions: {
+              lessOptions: {
+                  modifyVars: lightThemeVars,
+                  javascriptEnabled: true,
+              },
+          },
+          modifyLessRule: function (lessRule, _context) {
+              lessRule.test = /\.module\.less$/;
+              lessRule.exclude = undefined;
+              return lessRule;
+          },
+          cssLoaderOptions: {
+              modules: { localIdentName: '[local]' },
+          },
+      },
+  },
   ],
 };

@@ -1,9 +1,8 @@
 import "./style.less"
 import React, { useState } from 'react';
 import { Switch } from 'antd';
-import darkVars from '../../../styles/themes/dark.json';
 import lightVars from '../../../styles/themes/light.json';
-import darkTheme from 'antd/dist/dark-theme';
+import darkVars from 'antd/dist/dark-theme';
 
 
 function ThemeSwitcher({ setTheme }) {
@@ -11,7 +10,7 @@ function ThemeSwitcher({ setTheme }) {
 
   const changeTheme = (switchToDarkMode) => {
     setDarkMode(switchToDarkMode);
-    const themeVars = switchToDarkMode ? darkTheme : lightVars;
+    const themeVars = switchToDarkMode ? darkVars : lightVars;
     setTheme(switchToDarkMode ? 'dark' : 'light');
     document.querySelector('body').classList.toggle('dark');
     window

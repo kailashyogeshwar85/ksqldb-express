@@ -3,7 +3,7 @@ import { Card } from 'antd';
 
 const QueryResult = props =>  {
   return (
-    <Card class='query-result' title="Result">
+    <Card className='query-result' title="Result">
       <Table/>
     </Card>
   );

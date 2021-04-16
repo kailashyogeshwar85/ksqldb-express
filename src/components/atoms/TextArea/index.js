@@ -1,18 +1,32 @@
-function TextArea() {
+import { Layout, Card, Input, Button, Row, Col, Space } from 'antd';
 
+
+function TextAreaCustom() {
   return (
-    // <Layout className="editor-container" style={{ height: '100%' }}>
-    //   <div>
-    //     <Card className="editor" style={{width: "100%"}}>
-    //       <textarea
-    //         showCount
-    //         defaultValue="SELECT * from USERS_S;"
-    //       />
-    //     </Card>
-    //   </div>
-    // </Layout>
-    <textarea value="hola"/>
+    <Layout className="editor-container">
+      <div>
+        <Card className="editor" style={{width: "100%"}}>
+          <Row style={{height: 220 }}>
+            <Col span={22}>
+            <Input.TextArea
+              showCount
+              defaultValue="SELECT * from USERS_S;"
+              style={{height: 200}}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Space>
+              <Button type="primary">Run</Button>
+              <Button type="ghost">Clear</Button>
+              </Space>
+            </Col>
+          </Row>
+        </Card>
+      </div>
+    </Layout>
   );
 }
 
-export default TextArea;
+export default TextAreaCustom;

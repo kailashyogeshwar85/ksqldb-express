@@ -2,16 +2,16 @@ import { Layout } from 'antd';
 import { Header, Sidebar } from 'components/organisms'
 import { QueryEditor, QueryResult } from 'components/molecules';
 
-const { Content, Sider  } = Layout;
+const { Content } = Layout;
 
 function KExpressWrapper({ theme, setTheme }) {
   return (
-      <Layout >
+      <Layout>
         <Header theme={theme} setTheme={setTheme} />
-        <Layout class="site-layout">
+        <Layout className="site-layout">
           <Sidebar theme={theme} setTheme={setTheme} />
           <Content className="content-wrapper">
-            <QueryEditor />
+            <QueryEditor theme={theme}/>
             <QueryResult />
           </Content>
         </Layout>
