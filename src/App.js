@@ -7,7 +7,7 @@ function App() {
   const [theme, setTheme] = useState('light');
 
   return (
-    <div className="App">
+    <div id="kex-app">
       <KExpressWrapper
           theme={theme}
           setTheme={setTheme}

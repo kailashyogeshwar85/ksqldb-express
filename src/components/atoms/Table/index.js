@@ -1,91 +1,126 @@
 
 import { Table, Tag, Space, Layout } from 'antd';
 
-const { Content } = Layout;
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: tags => (
-      <>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (text, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
+  const { Content } = Layout;
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+    },
+    {
+      title: 'Description',
+      dataIndex: 'description'
+    },
+    {
+      title: 'Tel',
+      dataIndex: 'tel'
+    },
+    {
+      title: 'Phone',
+      dataIndex: 'phone'
+    },
+    {
+      title: 'Column 1',
+      dataIndex: 'column1'
+    },
+    {
+      title: 'Column 2',
+      dataIndex: 'column2'
+    },
+    {
+      title: 'Column 3',
+      dataIndex: 'column3'
+    },
+    {
+      title: 'Column 4',
+      dataIndex: 'column4'
+    },
+    {
+      title: 'Column 5',
+      dataIndex: 'column5'
+    },
+    {
+      title: 'Column 6',
+      dataIndex: 'column6'
+    },
+    {
+      title: 'Column 7',
+      dataIndex: 'column7'
+    },
+    {
+      title: 'Column 8',
+      dataIndex: 'column8'
+    },
+    {
+      title: 'Column 9',
+      dataIndex: 'column9'
+    },
+    {
+      title: 'Column 10',
+      dataIndex: 'column10'
+    },
+    {
+      title: 'Column 11',
+      dataIndex: 'column11'
+    },
+    {
+      title: 'Column 12',
+      dataIndex: 'column12'
+    },
+    {
+      title: 'Column 13',
+      dataIndex: 'column13'
+    }
 
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
+  ];
+
+  const data = [];
+  for (let i = 0; i < 100; i++) {
+    data.push({
+      key: i,
+      name: `Edward King ${i}`,
+      age: 32,
+      description: 'Jim Green',
+      address: `London, Park Lane no. ${i}`,
+      tel: '0571-22098333',
+      phone: 18889898888,
+      column1: `coldata-1`,
+      column2: `coldata-2`,
+      column3: `coldata-3`,
+      column4: `coldata-4`,
+      column5: `coldata-5`,
+      column6: `coldata-6`,
+      column7: `coldata-7`,
+      column8: `coldata-8`,
+      column9: `coldata-9`,
+      column10: `coldata-10`,
+      column11: `coldata-11`,
+      column12: `coldata-12`,
+      column13: `coldata-13`,
+
+
+
+    });
+  }
 
 function QueryResult() {
-  const scrollSettings = {
-    scrollToFirstRowOnChange: true,
-    x: true,
-    y: true
-  };
   return (
       <Table
         columns={columns}
         dataSource={data}
-        scroll={scrollSettings}
+        scroll={{ x: '100vw', y: 300 }}
+        pagination={{ position: ['none', 'none'] }}
+        bordered
+        footer={() => (<h4>Total Records: 100</h4>)}
+        size='small'
       />
   )
 }

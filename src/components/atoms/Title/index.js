@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import styles from './title.module.less';
 
 const Title = props => {
-    console.log('title ', props);
     let markup = '';
     let classes = `${styles.heading} ${styles[props.spacing]} ${styles[props.theme || 'dark']}
         ${styles[props.align || 'left']}

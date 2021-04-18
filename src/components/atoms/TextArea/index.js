@@ -1,32 +1,26 @@
-import { Layout, Card, Input, Button, Row, Col, Space } from 'antd';
-
-
-function TextAreaCustom() {
+import PropTypes from 'prop-types';
+import './stye.less';
+function TextArea(props) {
+  const classes = `ke_textarea_${props.theme}`;
   return (
-    <Layout className="editor-container">
-      <div>
-        <Card className="editor" style={{width: "100%"}}>
-          <Row style={{height: 220 }}>
-            <Col span={22}>
-            <Input.TextArea
-              showCount
-              defaultValue="SELECT * from USERS_S;"
-              style={{height: 200}}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Space>
-              <Button type="primary">Run</Button>
-              <Button type="ghost">Clear</Button>
-              </Space>
-            </Col>
-          </Row>
-        </Card>
-      </div>
-    </Layout>
+    <textarea
+      className= {classes}
+      name = {props.name}
+      rows= {props.rows}
+      cols = {props.cols}
+      maxLength = {props.maxChars || 10000 }
+      placeholder = {props.placeholder || 'Textrea'}
+    />
   );
 }
 
-export default TextAreaCustom;
+TextArea.propTypes = {
+  name: PropTypes.string.isRequired,
+  rows: PropTypes.number.isRequired,
+  cols: PropTypes.number.isRequired,
+  maxChars: PropTypes.number,
+  placeholder: PropTypes.string,
+  theme: PropTypes.oneOf(['light', 'dark'])
+};
+
+export default TextArea;
