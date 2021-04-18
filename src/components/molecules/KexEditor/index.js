@@ -34,7 +34,7 @@ function KexEditor(props) {
         />
       </Col>
     </Row>
-    <Row class="actions" style={{ paddingTop: 15 }}>
+    <Row className="actions" style={{ paddingTop: 15 }}>
       <Col>
           <Space>
             <Button type="primary">Run</Button>
