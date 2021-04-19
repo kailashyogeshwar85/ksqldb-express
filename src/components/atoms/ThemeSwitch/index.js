@@ -3,11 +3,10 @@ import React, { useState } from 'react';
 import { Switch } from 'antd';
 import lightVars from '../../../styles/themes/light.json';
 import darkVars from 'antd/dist/dark-theme';
-
+import { useDispatch } from 'react-redux';
 
 function ThemeSwitcher({ setTheme }) {
   const [isDarkMode, setDarkMode] = useState(false);
-
   const changeTheme = (switchToDarkMode) => {
     setDarkMode(switchToDarkMode);
     const themeVars = switchToDarkMode ? darkVars : lightVars;
@@ -27,8 +26,8 @@ function ThemeSwitcher({ setTheme }) {
         <Switch
             checked={isDarkMode}
             onChange={changeTheme}
-            checkedChildren="Dark"
-            unCheckedChildren="Light"
+            checkedChildren="🌜"
+            unCheckedChildren="🌞"
           />
       </div>
     );

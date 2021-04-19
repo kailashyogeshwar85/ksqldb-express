@@ -124,7 +124,8 @@ const treeData = [
   },
 ];
 
-const Nodes = () => {
+const Nodes = (props) => {
+  console.log('tree props ', props);
   const onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
   };

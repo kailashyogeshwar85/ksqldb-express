@@ -1,8 +1,27 @@
 import React, {useState} from 'react';
-import Table from 'components/atoms/Table';
-import { Card } from 'antd';
+import { Card, Table, Empty } from 'antd';
+
+
+const ResultTable = (props) => {
+  const columns = [];
+  const data = [];
+  const dataSource = [];
+  return(
+    <Table
+      columns={columns}
+      dataSource={data}
+      scroll={{ x: '100vw', y: 300 }}
+      pagination={{ position: ['none', 'none'] }}
+      bordered
+      footer={() => (<h4>Total Records: 100</h4>)}
+      size='small'
+    >
+    </Table>
+  )
+}
 
 const QueryResult = props =>  {
+  const result = props.result;
   const [activeTab, setActiveTab ] = useState('records');
 
   const tablist = [
@@ -17,13 +36,12 @@ const QueryResult = props =>  {
   ];
 
   const onTabChange = (key, type) => {
-    console.log('new ', key, type);
     setActiveTab(key);
   }
 
   const contentList = {
-    records: <Table />,
-    schema: <p>Avro Schema</p>
+    records: result ? <ResultTable />: <Empty style={{ height: 350 }}/>,
+    schema: <Empty style={{ height: 350 }} />
   };
 
   return (
