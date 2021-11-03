@@ -1,7 +1,19 @@
-import { CLUSTER_FETCH_SUCCESS } from './clusterActionType';
+import {
+  CLUSTER_FETCH_SUCCESS,
+  CLUSTER_FETCH_ALL_NODES_SUCCESS
+} from './clusterActionType';
 
 const initialState = {
-  clusterInfo: []
+  clusterInfo: {
+    KsqlServerInfo: {
+      ksqlServiceId: ''
+    }
+  },
+  treeNodes: {
+    streams: [],
+    tables: [],
+    topics: []
+  }
 };
 
 const clusterReducer = (state = initialState, action) => {
@@ -10,6 +22,11 @@ const clusterReducer = (state = initialState, action) => {
       return {
         ...state,
         clusterInfo: action.payload
+      };
+    case CLUSTER_FETCH_ALL_NODES_SUCCESS:
+      return {
+        ...state,
+        treeNodes: action.payload
       };
     default:
       return state;

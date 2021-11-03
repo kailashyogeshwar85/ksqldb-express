@@ -1,4 +1,3 @@
-const path = require('path')
 const CracoLessPlugin = require('craco-less');
 const lightThemeVars = require('./src/styles/themes/light');
 
@@ -33,6 +32,15 @@ module.exports = {
               modules: { localIdentName: '[local]' },
           },
       },
-  },
+    },
   ],
+  webpack: {
+    configure: (config, { env, paths }) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ["@svgr/webpack", 'url-loader']
+      });
+      return config;
+    }
+  }
 };

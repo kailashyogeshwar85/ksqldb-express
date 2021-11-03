@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import userReducer from 'redux/user/userReducer.js';
 import clusterReducer from 'redux/cluster/clusterReducer';
+import queryEditorReducer from 'redux/editor/queryEditorReducer';
 
 const appReducers = combineReducers({
   userReducer,
   clusterReducer,
+  queryEditorReducer,
 });
 
 const rootReducer = (state, action) => {

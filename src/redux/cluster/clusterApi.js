@@ -1,4 +1,9 @@
 export const fetchClusterInfoReq = {
   method: 'GET',
-  path: '/clusterInfo',
-}
+  path: '/cluster/clusterInfo',
+};
+
+export const fetchAllTreeNodes = {
+  method: 'GET',
+  path: '/cluster/getAllNodes'
+};

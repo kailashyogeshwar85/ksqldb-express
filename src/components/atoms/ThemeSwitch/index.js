@@ -26,7 +26,7 @@ function ThemeSwitcher({ setTheme }) {
         <Switch
             checked={isDarkMode}
             onChange={changeTheme}
-            checkedChildren="🌜"
+            checkedChildren="🌙"
             unCheckedChildren="🌞"
           />
       </div>

@@ -1,9 +1,10 @@
 import { Layout } from 'antd';
+import Icon from '@ant-design/icons';
 import './style.less';
-import Tree from 'components/atoms/Tree';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchClusterDetails } from 'redux/cluster/clusterActionCreator';
+import { fetchClusterDetails, fetchAllTreeNodes } from 'redux/cluster/clusterActionCreator';
+import SidebarTree from '../SidebarTree';
 import Loading from 'components/atoms/Loading';
 
 const { Sider } = Layout;
@@ -11,16 +12,30 @@ const { Sider } = Layout;
 function SideBar({ theme }) {
   const [ loading, setLoading ] = useState(true);
   const dispatch = useDispatch();
-	const clusterReducer  = useSelector((state) => state.clusterReducer);
+	const { clusterInfo, treeNodes }  = useSelector((state) => state.clusterReducer);
 
   const handleFetchClusterInfo = async () => {
     dispatch(fetchClusterDetails());
   }
 
+  const handleFetchAllNodes = async () => {
+    dispatch(fetchAllTreeNodes());
+  }
+
   useEffect(() => {
-    console.log('fetching cluster details');
     handleFetchClusterInfo();
-  }, [clusterReducer]);
+    handleFetchAllNodes();
+  }, []);
+
+
+
+  useEffect(() => {
+    if (treeNodes.streams.length) {
+      setLoading(false);
+    }
+  }, [treeNodes.streams]);
+
+
 
   return (
     <div>
@@ -32,7 +47,10 @@ function SideBar({ theme }) {
         {
           loading
             ? <Loading loading />
-            : <Tree />
+            : <SidebarTree
+                clusterInfo={clusterInfo}
+                treeNodes={treeNodes}
+              />
         }
       </Sider>
     </div>

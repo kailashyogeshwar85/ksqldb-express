@@ -7,7 +7,7 @@ axios.interceptors.request.use(function (config) {
   return config;
 });
 
-const apiBaseURL = 'http://localhost:3001';
+const apiBaseURL = 'http://localhost:3210';
 
 class API {
   checkStatus(response) {
@@ -20,7 +20,8 @@ class API {
     throw error;
   }
 
-  sendRequest(options) {
+  sendRequest(options, body = { }) {
+    options.data = body;
     options.url = options.path;
     options.baseURL = apiBaseURL;
     return axios.request(options);
